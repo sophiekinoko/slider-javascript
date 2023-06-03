@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<meta charset="UTF-8">
+	<title>SLIDER</title>
+
+	<script src="slider.js"></script>
+	<script src="utilities.js"></script>
+
+	<script>
+		// document.addEventListener ("DOMContentLoaded", function(){document.write("page loaded")}) // ajoute un listener pour executer une action une fois que la age est chargée - mais le document write à enlevé l'image
+
+		// document.addEventListener ("DOMContentLoaded", function(){
+		// 	var elem  = document.getElementById("monPar");
+		// 	console.log(elem);// en cliquant sur mon objet dans la console on voit qu'il a un attribut innerHTML; on va donc le changer :
+		// 	elem.innerHTML="mon nouveau texte";// le texte est remplacé
+
+		// });
+		
+		// document.addEventListener ("DOMContentLoaded", function(){
+		// 	var elem  = document.getElementById("monImg");
+		// 	// console.log(elem);
+		// 	var randomIndex = getRandomInteger(0,slides.length-1);//c'est la fonction de chiffre aléatoires de l'exercice du chevalier
+		// 	elem.src = slides[randomIndex].image;
+		// });
+
+
+		document.addEventListener ("DOMContentLoaded", function(){
+			slider = new Object();
+			slider.current = 0;
+			slider.timer = null;
+			refreshSlider();
+			// start();
+			// sliderNext();
+			// setInterval(sliderNext, 500);
+
+			var buttonNext = document.getElementById("btSui");
+			buttonNext.addEventListener("click",sliderNext);
+
+			var buttonPrev = document.getElementById("btPrec");
+			buttonPrev.addEventListener("click",sliderPrev);
+
+			// document.getElementById("btSuiTest").addEventListener("click",sliderNext);
+
+			var buttonRandom = document.getElementById("btRand");
+			buttonRandom.addEventListener("click",random);
+
+			// var buttonInter = document.getElementById("btInt");
+			// buttonInter.addEventListener("click",toggle);
+
+			var buttonStart = document.getElementById("btStart");
+			buttonStart.addEventListener("click",start);
+
+			var buttonStop = document.getElementById("btStop");
+			buttonStop.addEventListener("click",stop);
+
+			var buttonToggle = document.getElementById("btToggle");
+			buttonToggle.addEventListener("click",toggle);
+
+			var buttonStartRandom = document.getElementById("btStartRandom");
+			buttonStartRandom.addEventListener("click",randomStart);
+		});
+
+	</script>
+
+	<style>
+		body {
+			background-color: #DADFE1;
+		}
+
+		img {
+			width: 200px;
+			opacity: 1;
+			transition: opacity 0.5s ease;
+		}
+
+		.mapage {
+			width: 200px;
+			margin: auto;
+			text-align: center;
+			font-family: arial;
+		}
+
+		.hidden {
+			opacity: 0;
+		}
+
+		a {
+			text-decoration: none;
+			display: block;
+			background-color: #F22613;
+			color: white;
+			margin-bottom: 5px;
+			padding: 7px 0 5px 0;
+		}
+
+		a:nth-child(-n+4) {
+			background-color: #D2527F;
+		}
+
+		a:last-child {
+			background-color: #000;
+		}
+
+	</style>
+
+</head>
+
+
+<body>
+	<div class="mapage">
+
+		<img src="" alt="" id="monImg">
+		<!-- <p id="monPar">hello world</p> -->
+		
+		<a href="#" id="btPrec">Previous</a>
+		<a href="#" id="btSui">Next</a>
+		<a href="#" id="btRand">Random</a>
+
+
+		<a href="#" id="btStart">Start</a>
+		<a href="#" id="btStop">Stop</a>
+		<a href="#" id="btStartRandom">RANDOM START</a>
+
+		<a href="#" id="btToggle">START</a>
+		
+	</div>
+</body>
+
+</html>
